@@ -20,7 +20,7 @@ final class RegionOfInterestCoordinator {
     private let quadkeyBuilder = QuadkeyBuilder()
     private var currentDENMRegionOfInterest: RegionOfInterest?
 
-    func updateAlarmRegionOfInterest(
+    func updateRoadAlarmRegionOfInterest(
         latitude: Double,
         longitude: Double,
         zoomLevel: Int

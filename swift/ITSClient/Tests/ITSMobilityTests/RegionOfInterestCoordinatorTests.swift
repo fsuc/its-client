@@ -20,7 +20,7 @@ struct RegionOfInterestCoordinatorTests {
         let regionOfInterestCoordinator = RegionOfInterestCoordinator()
 
         // When
-        let requestUpdate = regionOfInterestCoordinator.updateAlarmRegionOfInterest(
+        let requestUpdate = regionOfInterestCoordinator.updateRoadAlarmRegionOfInterest(
             latitude: 43.63516355648167,
             longitude: 1.3744570239910097,
             zoomLevel: 22)
@@ -35,13 +35,13 @@ struct RegionOfInterestCoordinatorTests {
     func regionofinterestcoordinator_should_return_9_subscriptions_and_9_unsubscriptions_when_updating() throws {
         // Given
         let regionOfInterestCoordinator = RegionOfInterestCoordinator()
-        _ = regionOfInterestCoordinator.updateAlarmRegionOfInterest(
+        _ = regionOfInterestCoordinator.updateRoadAlarmRegionOfInterest(
             latitude: 43.63516355648167,
             longitude: 1.3744570239910097,
             zoomLevel: 22)
 
         // When
-        let requestUpdate = regionOfInterestCoordinator.updateAlarmRegionOfInterest(
+        let requestUpdate = regionOfInterestCoordinator.updateRoadAlarmRegionOfInterest(
             latitude: 43.64516355648167,
             longitude: 1.3844570239910097,
             zoomLevel: 22)
@@ -56,13 +56,13 @@ struct RegionOfInterestCoordinatorTests {
     func regionofinterestcoordinator_should_return_nil_when_no_update() throws {
         // Given
         let regionOfInterestCoordinator = RegionOfInterestCoordinator()
-        _ = regionOfInterestCoordinator.updateAlarmRegionOfInterest(
+        _ = regionOfInterestCoordinator.updateRoadAlarmRegionOfInterest(
             latitude: 43.63516355648167,
             longitude: 1.3744570239910097,
             zoomLevel: 22)
 
         // When
-        let requestUpdate = regionOfInterestCoordinator.updateAlarmRegionOfInterest(
+        let requestUpdate = regionOfInterestCoordinator.updateRoadAlarmRegionOfInterest(
             latitude: 43.63516355648101,
             longitude: 1.3744570239910001,
             zoomLevel: 22)

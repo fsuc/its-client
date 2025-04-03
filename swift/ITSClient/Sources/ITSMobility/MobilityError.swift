@@ -24,4 +24,8 @@ public enum MobilityError: Error {
     case payloadEncodingFailed
     /// The payload publishing failed.
     case payloadPublishingFailed(CoreError)
+    /// The subscription failed.
+    case subscriptionFailed(CoreError)
+    /// The unsubscription failed.
+    case unsubscriptionFailed(CoreError)
 }
