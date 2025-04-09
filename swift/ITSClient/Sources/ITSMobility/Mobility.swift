@@ -140,6 +140,16 @@ public actor Mobility {
             zoomLevel: zoomLevel)
         try await updateSubscriptions(topicUpdateRequest: topicUpdateRequest)
     }
+
+    public func updateRoadPositionRegionOfInterest(
+        latitude: Double,
+        longitude: Double,
+        zoomLevel: Int) async throws(MobilityError) {
+        let topicUpdateRequest = regionOfInterestCoordinator.updateRoadPositionRegionOfInterest(
+            latitude: latitude,
+            longitude: longitude,
+            zoomLevel: zoomLevel)
+        try await updateSubscriptions(topicUpdateRequest: topicUpdateRequest)
     }
 
     private func publish<T: Codable>(_ payload: T, topic: String) async throws(MobilityError) {

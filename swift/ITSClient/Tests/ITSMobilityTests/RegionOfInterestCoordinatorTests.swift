@@ -14,8 +14,8 @@ import Testing
 @testable import ITSMobility
 
 struct RegionOfInterestCoordinatorTests {
-    @Test("RegionOfInterestCoordinator should return 9 subscriptions and 0 unsubscription the first time")
-    func regionofinterestcoordinator_should_return_9_subscriptions_and_0_unsubscription_first_time() throws {
+    @Test("Updating road alarm ROI should return 9 subscriptions and 0 unsubscription the first time")
+    func updating_road_alarm_roi_should_return_9_subscriptions_and_0_unsubscription_first_time() throws {
         // Given
         let regionOfInterestCoordinator = RegionOfInterestCoordinator()
 
@@ -31,8 +31,8 @@ struct RegionOfInterestCoordinatorTests {
         #expect(unwrapRequestUpdate.unsubscriptions.isEmpty)
     }
 
-    @Test("RegionOfInterestCoordinator should return 9 subscriptions and 9 unsubscriptions when updating")
-    func regionofinterestcoordinator_should_return_9_subscriptions_and_9_unsubscriptions_when_updating() throws {
+    @Test("Updating road alarm ROI should return 9 subscriptions and 9 unsubscriptions when moving")
+    func updating_road_alarm_roi_should_return_9_subscriptions_and_9_unsubscriptions_when_moving() throws {
         // Given
         let regionOfInterestCoordinator = RegionOfInterestCoordinator()
         _ = regionOfInterestCoordinator.updateRoadAlarmRegionOfInterest(
@@ -52,8 +52,8 @@ struct RegionOfInterestCoordinatorTests {
         #expect(unwrapRequestUpdate.unsubscriptions.count == 9)
     }
 
-    @Test("RegionOfInterestCoordinator should return nil when no update")
-    func regionofinterestcoordinator_should_return_nil_when_no_update() throws {
+    @Test("Updating road alarm ROI should return nil when no update")
+    func updating_road_alarm_roi_should_return_nil_when_no_update() throws {
         // Given
         let regionOfInterestCoordinator = RegionOfInterestCoordinator()
         _ = regionOfInterestCoordinator.updateRoadAlarmRegionOfInterest(
@@ -63,6 +63,25 @@ struct RegionOfInterestCoordinatorTests {
 
         // When
         let requestUpdate = regionOfInterestCoordinator.updateRoadAlarmRegionOfInterest(
+            latitude: 43.63516355648101,
+            longitude: 1.3744570239910001,
+            zoomLevel: 22)
+
+        // Then
+        #expect(requestUpdate == nil)
+    }
+
+    @Test("Updating road position ROI should return nil when no update")
+    func updating_road_position_roi_should_return_nil_when_no_update() throws {
+        // Given
+        let regionOfInterestCoordinator = RegionOfInterestCoordinator()
+        _ = regionOfInterestCoordinator.updateRoadPositionRegionOfInterest(
+            latitude: 43.63516355648167,
+            longitude: 1.3744570239910097,
+            zoomLevel: 22)
+
+        // When
+        let requestUpdate = regionOfInterestCoordinator.updateRoadPositionRegionOfInterest(
             latitude: 43.63516355648101,
             longitude: 1.3744570239910001,
             zoomLevel: 22)
